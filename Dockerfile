@@ -1,4 +1,5 @@
 FROM docker.io/centos:latest
+LABEL base.os="centos7" base.version="7.3.1611" firefox="45.6.0" flash="24.0.0.186"
 RUN yum fs filter languages en:US && yum fs filter documentation \
   && echo "[adobe-linux-x86_64]" >> /etc/yum.repos.d/flash.repo \
   && echo "name = Adobe Systems Incorporated" >> /etc/yum.repos.d/flash.repo \
