@@ -1,5 +1,5 @@
-FROM docker.io/centos:latest
-LABEL base.os="centos7" base.version="7.3.1611" firefox="45.6.0" flash="24.0.0.186"
+FROM docker.io/centos:7.3.1611
+LABEL base.os="centos7" base.version="7.3.1611" firefox="52.0" flash="25.0.0.127"
 RUN yum fs filter languages en:US && yum fs filter documentation \
   && printf "[adobe-linux-x86_64]\nname = Adobe Systems Incorporated\nbaseurl = http://linuxdownload.adobe.com/linux/x86_64/\nenabled = 1\ngpgcheck = 0\n" | tee /etc/yum.repos.d/flash.repo \
   && yum install dbus PackageKit-gtk3-module flash-plugin libcanberra-gtk2 firefox ca-certificates curl -y >&2 && yum clean all -y >&2 \
