@@ -6,7 +6,7 @@ RUN yum fs filter languages en:US && yum fs filter documentation \
   && curl -Ss https://fpdownload.adobe.com/get/flashplayer/pdc/25.0.0.127/flash_player_npapi_linux.x86_64.tar.gz \
   | tar xz --exclude=usr --exclude=LGPL --exclude=license.pdf --exclude=readme.txt --directory /usr/lib/mozilla/plugins \
   && rm -f /etc/yum.repos.d/flash.repo \
-  && dbus-uuidgen | tee /etc/machine-id
+  && dbus-uuidgen | tee /etc/machine-id \
   && curl -o /usr/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64" -L \
   && chmod +x /usr/bin/dumb-init
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
